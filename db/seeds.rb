@@ -8,3 +8,12 @@
 Denomination::SUPPORTED_DENOMINATIONS.each do |denom_val|
   Denomination.create!(value: denom_val, quantity: 100)
 end
+
+5.times do
+  Product.new(
+      name: Faker::Lorem.word,
+      price: Faker::NumberFaker::Number.within(range: 1..1000),
+      quantity: 10
+  )
+end
+

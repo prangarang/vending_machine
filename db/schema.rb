@@ -26,12 +26,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_104134) do
   end
 
   create_table "denominations", force: :cascade do |t|
-    t.integer "value", null: false
-    t.integer "quantity", null: false
+    t.integer "value"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
-    t.index :value, unique: true
   end
 
   create_table "products", force: :cascade do |t|
