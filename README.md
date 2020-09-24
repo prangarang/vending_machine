@@ -179,14 +179,13 @@ the tests I would continue to add given the time are:
 - tests for serializers
 - Request specs for the basic CRUD functionality in the Product and Denomination APIs.
 - BDD/Cucumber style testing that simulates the series of API calls 
-- More complete coverage on models
+- More complete coverage on models, especially around the rails validations using shoulda matchers
 #### Error Handling
 Some additional work needed on the error handling front are:
 - Error messages need to be driven by translations instead of raw text
 - Error responses should have additional details in them like error_code and error_details
 - When we cannot make change, we currently return an error and 503 while also fully refunding the customer. This
 may not be the best way to handle this error case and we would need to discuss further.
-
 
 ## Dependencies
 [gorails](https://gorails.com/setup/) has a great up to date setup guide, which covers a number of the remaining dependencies listed below:
