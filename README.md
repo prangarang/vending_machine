@@ -175,11 +175,11 @@ time complexity of O(dt) where d = total number of denominations available and t
 While my checkout request specs did a good job of doing end to end tests exercising complete code paths, I wasn't able 
 to fully test the app in the manner I would for a production release due to time constraints. Some of
 the tests I would continue to add given the time are:
-- test more of the validations cases at the beginning of checkout request spec
+- test more of the validations cases at the beginning of checkout api
 - tests for serializers
-- Request specs for the basic CRUD functionality in the Product and Denomination APIs.
-- BDD/Cucumber style testing that simulates the series of API calls 
-- More complete coverage on models, especially around the rails validations using shoulda matchers
+- Request specs for the basic CRUD functionality in the Product and Denomination APIs. These were built by scaffolds so I was less concerned with testing these.
+- BDD/Cucumber style testing that simulates the entire end to end series of API calls during a checkout flow 
+- More complete test coverage on models, especially around the rails validations using shoulda matchers
 #### Error Handling
 Some additional work needed on the error handling front are:
 - Error messages need to be driven by translations instead of raw text
