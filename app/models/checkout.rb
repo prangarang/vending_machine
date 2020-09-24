@@ -26,7 +26,6 @@ class Checkout < ApplicationRecord
 
   private
 
-
   def update_status
     if total_amount_payable == 0
       self.status = 'succeeded'

@@ -179,6 +179,7 @@ the tests I would continue to add given the time are:
 - tests for serializers
 - Request specs for the basic CRUD functionality in the Product and Denomination APIs.
 - BDD/Cucumber style testing that simulates the series of API calls 
+- More complete coverage on models
 #### Error Handling
 Some additional work needed on the error handling front are:
 - Error messages need to be driven by translations instead of raw text
