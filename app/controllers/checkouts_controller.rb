@@ -60,20 +60,20 @@ class CheckoutsController < ApplicationController
       render_checkout
     end
   rescue StandardError => e
-      # If we hit any errors, then we should mark the checkout as failed and refund the total amount to the
-      # customer. We should have this amount available to us, since they just gave it to us and there is only one
-      # customer at a time so we havent given those coins to anyone else.
-      @checkout.failed!
-      change = ChangeProcessor.process_using_available_denoms!(@checkout.total_amount_paid)
-      error_message = if e.is_a?(ChangeProcessor::ProcessingError)
-                        "Checkout failed due to insufficient change available. Returning #{change.total_amount} pence. "\
-                 'Please try again later or with different denominations.'
-                      else
-                        "We are currently having issues checking you out. Returning #{change.total_amount} pence. "\
-               'Please try again later.'
-                        end
+    # If we hit any errors, then we should mark the checkout as failed and refund the total amount to the
+    # customer. We should have this amount available to us, since they just gave it to us and there is only one
+    # customer at a time so we havent given those coins to anyone else.
+    @checkout.failed!
+    change = ChangeProcessor.process_using_available_denoms!(@checkout.total_amount_paid)
+    error_message = if e.is_a?(ChangeProcessor::ProcessingError)
+                      "Checkout failed due to insufficient change available. Returning #{change.total_amount} pence. "\
+               'Please try again later or with different denominations.'
+                    else
+                      "We are currently having issues checking you out. Returning #{change.total_amount} pence. "\
+             'Please try again later.'
+                    end
 
-      render_error(error_message, :service_unavailable)
+    render_error(error_message, :service_unavailable)
   end
 
   private

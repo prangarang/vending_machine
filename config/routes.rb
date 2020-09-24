@@ -2,8 +2,7 @@
 
 Rails.application.routes.draw do
   resources :denominations
-  resources :inventories
   resources :products
-  resources :checkouts
+  resources :checkouts, only: [:create, :update, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
